@@ -4,23 +4,23 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"github.com/asdine/storm"
+	"github.com/spf13/cobra"
+	"github.com/spf13/pflag"
+	yaml "gopkg.in/yaml.v2"
 	"io/ioutil"
 	"log"
 	"math/rand"
 	"os"
 	"path/filepath"
 	"strings"
-	"time"
-
-	"github.com/asdine/storm"
-	"github.com/spf13/cobra"
-	"github.com/spf13/pflag"
-	yaml "gopkg.in/yaml.v2"
 
 	"github.com/kuaifan/filebrowser/v2/settings"
 	"github.com/kuaifan/filebrowser/v2/storage"
 	"github.com/kuaifan/filebrowser/v2/storage/bolt"
 )
+
+const letterBytes = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 func checkErr(err error) {
 	if err != nil {
@@ -196,15 +196,12 @@ func convertCmdStrToCmdArray(cmd string) []string {
 }
 
 // randString 生成随机字符串
-func randString(len int) string {
-	var r *rand.Rand
-	r = rand.New(rand.NewSource(time.Now().Unix()))
-	bs := make([]byte, len)
-	for i := 0; i < len; i++ {
-		b := r.Intn(26) + 65
-		bs[i] = byte(b)
+func randString(n int) string {
+	b := make([]byte, n)
+	for i := range b {
+		b[i] = letterBytes[rand.Intn(len(letterBytes))]
 	}
-	return string(bs)
+	return string(b)
 }
 
 // writeFile 保存文件
