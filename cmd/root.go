@@ -362,7 +362,7 @@ func quickSetup(flags *pflag.FlagSet, d pythonData) {
 	password := getParam(flags, "password")
 
 	if password == "" {
-		pwd := randString(32)
+		pwd := randString(32) //nolint:gomnd
 		log.Printf("username: admin\n")
 		log.Printf("password: %s", pwd)
 		writeFile("./filebrowser.pw", pwd)

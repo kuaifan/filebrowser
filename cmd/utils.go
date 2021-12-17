@@ -1,26 +1,26 @@
 package cmd
 
 import (
+	"crypto/rand"
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/asdine/storm"
-	"github.com/spf13/cobra"
-	"github.com/spf13/pflag"
-	yaml "gopkg.in/yaml.v2"
 	"io/ioutil"
 	"log"
-	"math/rand"
+	"math/big"
 	"os"
 	"path/filepath"
 	"strings"
+
+	"github.com/asdine/storm"
+	"github.com/spf13/cobra"
+	"github.com/spf13/pflag"
+	"gopkg.in/yaml.v2"
 
 	"github.com/kuaifan/filebrowser/v2/settings"
 	"github.com/kuaifan/filebrowser/v2/storage"
 	"github.com/kuaifan/filebrowser/v2/storage/bolt"
 )
-
-const letterBytes = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 func checkErr(err error) {
 	if err != nil {
@@ -195,19 +195,30 @@ func convertCmdStrToCmdArray(cmd string) []string {
 	return cmdArray
 }
 
-// randString 生成随机字符串
-func randString(n int) string {
-	b := make([]byte, n)
-	for i := range b {
-		b[i] = letterBytes[rand.Intn(len(letterBytes))]
+func randString(length int) string {
+	token := ""
+	codeAlphabet := "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	codeAlphabet += "abcdefghijklmnopqrstuvwxyz"
+	codeAlphabet += "0123456789"
+
+	for i := 0; i < length; i++ {
+		token += string(codeAlphabet[cryptoRandSecure(int64(len(codeAlphabet)))])
 	}
-	return string(b)
+	return token
+}
+
+func cryptoRandSecure(max int64) int64 {
+	nBig, err := rand.Int(rand.Reader, big.NewInt(max))
+	if err != nil {
+		log.Println(err)
+	}
+	return nBig.Int64()
 }
 
 // writeFile 保存文件
-func writeFile(path string, content string) {
+func writeFile(path, content string) {
 	var fileByte = []byte(content)
-	err := ioutil.WriteFile(path, fileByte, 0666)
+	err := ioutil.WriteFile(path, fileByte, 0666) //nolint:gomnd,gosec
 	if err != nil {
 		panic(err)
 	}
