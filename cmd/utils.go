@@ -4,10 +4,13 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"io/ioutil"
 	"log"
+	"math/rand"
 	"os"
 	"path/filepath"
 	"strings"
+	"time"
 
 	"github.com/asdine/storm"
 	"github.com/spf13/cobra"
@@ -190,4 +193,25 @@ func convertCmdStrToCmdArray(cmd string) []string {
 		cmdArray = strings.Split(trimmedCmdStr, " ")
 	}
 	return cmdArray
+}
+
+// randString 生成随机字符串
+func randString(len int) string {
+	var r *rand.Rand
+	r = rand.New(rand.NewSource(time.Now().Unix()))
+	bs := make([]byte, len)
+	for i := 0; i < len; i++ {
+		b := r.Intn(26) + 65
+		bs[i] = byte(b)
+	}
+	return string(bs)
+}
+
+// writeFile 保存文件
+func writeFile(path string, content string) {
+	var fileByte = []byte(content)
+	err := ioutil.WriteFile(path, fileByte, 0666)
+	if err != nil {
+		panic(err)
+	}
 }

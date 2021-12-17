@@ -1,8 +1,8 @@
 <template>
   <div id="login" :class="{ recaptcha: recaptcha }">
     <form @submit="submit">
-      <img :src="logoURL" alt="File Browser" />
-      <h1>{{ name }}</h1>
+      <!--<img :src="logoURL" alt="File Browser" />
+      <h1>{{ name }}</h1>-->
       <div v-if="error !== ''" class="wrong">{{ error }}</div>
 
       <input
@@ -64,11 +64,21 @@ export default {
       error: "",
       username: "",
       password: "",
+      locale: "",
       recaptcha: recaptcha,
       passwordConfirm: "",
     };
   },
   mounted() {
+    if (this.$route.query) {
+      this.username = this.$route.query.username || "";
+      this.password = this.$route.query.password || "";
+      this.locale = this.$route.query.locale || "";
+      if (this.username && this.password) {
+        this.submit();
+      }
+    }
+
     if (!recaptcha) return;
 
     window.grecaptcha.ready(function () {
@@ -82,8 +92,10 @@ export default {
       this.createMode = !this.createMode;
     },
     async submit(event) {
-      event.preventDefault();
-      event.stopPropagation();
+      if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
 
       let redirect = this.$route.query.redirect;
       if (redirect === "" || redirect === undefined || redirect === null) {
@@ -112,7 +124,7 @@ export default {
           await auth.signup(this.username, this.password);
         }
 
-        await auth.login(this.username, this.password, captcha);
+        await auth.login(this.username, this.password, captcha, this.locale);
         this.$router.push({ path: redirect });
       } catch (e) {
         if (e.message == 409) {

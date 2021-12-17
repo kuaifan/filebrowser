@@ -362,7 +362,11 @@ func quickSetup(flags *pflag.FlagSet, d pythonData) {
 	password := getParam(flags, "password")
 
 	if password == "" {
-		password, err = users.HashPwd("admin")
+		pwd := randString(32)
+		log.Printf("username: admin\n")
+		log.Printf("password: %s", pwd)
+		writeFile("./filebrowser.pw", pwd)
+		password, err = users.HashPwd(pwd)
 		checkErr(err)
 	}
 

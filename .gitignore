@@ -29,3 +29,5 @@ yarn-error.log*
 *.sw*
 bin/
 build/
+filebrowser.pw
+package-lock.json

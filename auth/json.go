@@ -18,6 +18,7 @@ type jsonCred struct {
 	Password  string `json:"password"`
 	Username  string `json:"username"`
 	ReCaptcha string `json:"recaptcha"`
+	Locale    string `json:"locale"`
 }
 
 // JSONAuth is a json implementation of an Auther.
@@ -54,6 +55,15 @@ func (a JSONAuth) Auth(r *http.Request, sto users.Store, root string) (*users.Us
 	u, err := sto.Get(root, cred.Username)
 	if err != nil || !users.CheckPwd(cred.Password, u.Password) {
 		return nil, os.ErrPermission
+	}
+
+	// 登录时设置语言
+	if cred.Locale != "" {
+		u.Locale = cred.Locale
+		err = sto.Update(u)
+		if err != nil {
+			return nil, err
+		}
 	}
 
 	return u, nil

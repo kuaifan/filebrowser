@@ -18,7 +18,7 @@ async function start() {
     if (loginPage) {
       await validateLogin();
     } else {
-      await login("", "", "");
+      await login("", "", "", "");
     }
   } catch (e) {
     console.log(e);

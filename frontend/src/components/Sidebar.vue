@@ -33,7 +33,7 @@
         </button>
       </div>
 
-      <div>
+      <!--<div>
         <button
           class="action"
           @click="toSettings"
@@ -55,7 +55,7 @@
           <i class="material-icons">exit_to_app</i>
           <span>{{ $t("sidebar.logout") }}</span>
         </button>
-      </div>
+      </div>-->
     </template>
     <template v-else>
       <router-link
@@ -80,7 +80,7 @@
       </router-link>
     </template>
 
-    <p class="credits">
+    <!--<p class="credits">
       <span>
         <span v-if="disableExternal">File Browser</span>
         <a
@@ -95,7 +95,7 @@
       <span
         ><a @click="help">{{ $t("sidebar.help") }}</a></span
       >
-    </p>
+    </p>-->
   </nav>
 </template>
 
