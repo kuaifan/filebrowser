@@ -39,7 +39,7 @@ Vue.prototype.$showError = (error, displayReport = true) => {
     btns.unshift(
       Noty.button(i18n.t("buttons.reportIssue"), "", function () {
         window.open(
-          "https://github.com/filebrowser/filebrowser/issues/new/choose"
+          "https://github.com/kuaifan/filebrowser/issues/new/choose"
         );
       })
     );

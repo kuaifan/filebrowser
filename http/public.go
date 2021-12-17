@@ -10,8 +10,8 @@ import (
 	"github.com/spf13/afero"
 	"golang.org/x/crypto/bcrypt"
 
-	"github.com/filebrowser/filebrowser/v2/files"
-	"github.com/filebrowser/filebrowser/v2/share"
+	"github.com/kuaifan/filebrowser/v2/files"
+	"github.com/kuaifan/filebrowser/v2/share"
 )
 
 var withHashFile = func(fn handleFunc) handleFunc {
@@ -78,7 +78,7 @@ var withHashFile = func(fn handleFunc) handleFunc {
 	}
 }
 
-// ref to https://github.com/filebrowser/filebrowser/pull/727
+// ref to https://github.com/kuaifan/filebrowser/pull/727
 // `/api/public/dl/MEEuZK-v/file-name.txt` for old browsers to save file with correct name
 func ifPathWithName(r *http.Request) (id, filePath string) {
 	pathElements := strings.Split(r.URL.Path, "/")

@@ -3,9 +3,9 @@ package bolt
 import (
 	"github.com/asdine/storm"
 
-	"github.com/filebrowser/filebrowser/v2/auth"
-	"github.com/filebrowser/filebrowser/v2/errors"
-	"github.com/filebrowser/filebrowser/v2/settings"
+	"github.com/kuaifan/filebrowser/v2/auth"
+	"github.com/kuaifan/filebrowser/v2/errors"
+	"github.com/kuaifan/filebrowser/v2/settings"
 )
 
 type authBackend struct {
