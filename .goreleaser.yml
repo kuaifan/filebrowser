@@ -9,7 +9,7 @@ build:
   ldflags:
     - -s -w -X github.com/kuaifan/filebrowser/v2/version.Version={{ .Version }} -X github.com/kuaifan/filebrowser/v2/version.CommitSHA={{ .ShortCommit }}
   main: main.go
-  binary: filebrowser
+  binary: kuaifan
   goos:
     - darwin
     - linux
