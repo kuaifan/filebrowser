@@ -128,3 +128,18 @@ main {
 .break-word {
   word-break: break-all;
 }
+
+/*自定义*/
+html {
+  font-size: 13px !important;
+}
+body {
+  background-color: #ffffff !important;
+}
+nav .action,
+.breadcrumbs {
+  height: 50px;
+}
+#listing.list .item.header {
+  background-color: #ffffff !important;
+}

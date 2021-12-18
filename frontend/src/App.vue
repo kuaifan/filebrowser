@@ -10,6 +10,24 @@ __webpack_public_path__ = window.FileBrowser.StaticURL + "/";
 
 export default {
   name: "app",
+  watch: {
+    $route(route) {
+      if (window.parent) {
+        window.parent.postMessage(
+          {
+            action: "route",
+            message: {
+              fullPath: route.fullPath,
+              path: route.path,
+              hash: route.hash,
+              query: route.query,
+            },
+          },
+          "*"
+        );
+      }
+    },
+  },
   mounted() {
     const loading = document.getElementById("loading");
     loading.classList.add("done");

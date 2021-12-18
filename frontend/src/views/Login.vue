@@ -70,13 +70,34 @@ export default {
     };
   },
   mounted() {
-    if (this.$route.query) {
-      this.username = this.$route.query.username || "";
-      this.password = this.$route.query.password || "";
-      this.locale = this.$route.query.locale || "";
-      if (this.username && this.password) {
-        this.submit();
-      }
+    if (window.parent) {
+      window.addEventListener("message", (event) => {
+        let data = event.data;
+        switch (data.action) {
+          case "login":
+            try {
+              let user = data.message || {};
+              if (user.username) {
+                this.username = user.username || "";
+                this.password = user.password || "";
+                this.locale = user.locale || "";
+                if (this.username && this.password) {
+                  this.submit();
+                }
+              }
+            } catch (e) {
+              console.log(e);
+            }
+            break;
+        }
+      });
+      window.parent.postMessage(
+        {
+          action: "login",
+          message: {},
+        },
+        "*"
+      );
     }
 
     if (!recaptcha) return;
@@ -131,6 +152,16 @@ export default {
           this.error = this.$t("login.usernameTaken");
         } else {
           this.error = this.$t("login.wrongCredentials");
+          //
+          if (window.parent) {
+            window.parent.postMessage(
+              {
+                action: "loginError",
+                message: {},
+              },
+              "*"
+            );
+          }
         }
       }
     },

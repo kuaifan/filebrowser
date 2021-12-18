@@ -140,5 +140,16 @@
   [{[ if .CSS -]}]
     <link rel="stylesheet" href="[{[ .StaticURL ]}]/custom.css" />
   [{[ end ]}]
+
+  <script>
+    (function() {
+      if (window.parent) {
+        window.parent.postMessage({
+          action: "ready",
+          message: {}
+        }, '*');
+      }
+    })()
+  </script>
 </body>
 </html>
