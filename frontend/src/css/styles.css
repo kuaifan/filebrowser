@@ -12,6 +12,7 @@
 @import "./listing.css";
 @import "./dashboard.css";
 @import "./login.css";
+@import "./custom.css";
 
 .link {
   color: var(--blue);

@@ -17,7 +17,7 @@
         v-if="readOnly == undefined && type === 'image' && isThumbsEnabled"
         v-lazy="thumbnailUrl"
       />
-      <i v-else class="material-icons">{{ icon }}</i>
+      <i v-else :class="'ext-icons ext-' + extValue"></i>
     </div>
 
     <div>
@@ -46,6 +46,84 @@ export default {
   data: function () {
     return {
       touches: 0,
+      extIcons: [
+        "asp",
+        "3gp",
+        "7z",
+        "aac",
+        "aep",
+        "aepx",
+        "aet",
+        "aex",
+        "ai",
+        "aspx",
+        "avi",
+        "bak",
+        "bat",
+        "bmp",
+        "c",
+        "cmd",
+        "cpp",
+        "cs",
+        "css",
+        "csv",
+        "db",
+        "dbf",
+        "div",
+        "dll",
+        "doc",
+        "docx",
+        "dot",
+        "eps",
+        "exe",
+        "flv",
+        "gif",
+        "h",
+        "htm",
+        "html",
+        "java",
+        "jpeg",
+        "jpg",
+        "js",
+        "json",
+        "jsp",
+        "lib",
+        "m4v",
+        "mdb",
+        "mdf",
+        "mkv",
+        "mov",
+        "mp3",
+        "mp4",
+        "mpeg",
+        "pdf",
+        "php",
+        "png",
+        "ppt",
+        "pptx",
+        "psd",
+        "py",
+        "rar",
+        "raw",
+        "rm",
+        "rmvb",
+        "rtf",
+        "svg",
+        "tiff",
+        "tmp",
+        "txt",
+        "vob",
+        "wav",
+        "wdb",
+        "wma",
+        "wmv",
+        "wps",
+        "xd",
+        "xls",
+        "xlsx",
+        "xml",
+        "zip",
+      ],
     };
   },
   props: [
@@ -98,6 +176,17 @@ export default {
     },
     isThumbsEnabled() {
       return enableThumbs;
+    },
+    extValue() {
+      if (this.isDir) {
+        return "folder";
+      }
+      let ext = ("." + this.name).split(".").pop();
+      if (this.extIcons.includes(ext)) {
+        return ext;
+      } else {
+        return "other";
+      }
     },
   },
   methods: {

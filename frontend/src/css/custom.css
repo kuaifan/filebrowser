@@ -1,0 +1,254 @@
+html {
+    font-size: 13px !important;
+}
+body {
+    background-color: #ffffff !important;
+}
+nav .action,
+.breadcrumbs {
+    height: 50px;
+}
+#listing.list .item.header {
+    background-color: #ffffff !important;
+}
+.ext-icons {
+    background: url(../assets/ext/other.svg) center center no-repeat;
+    background-size: contain;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+}
+.ext-asp {
+    background-image: url(../assets/ext/asp.svg);
+}
+.ext-3gp {
+    background-image: url(../assets/ext/3gp.svg);
+}
+.ext-7z {
+    background-image: url(../assets/ext/7z.svg);
+}
+.ext-aac {
+    background-image: url(../assets/ext/aac.svg);
+}
+.ext-aep {
+    background-image: url(../assets/ext/aep.svg);
+}
+.ext-aepx {
+    background-image: url(../assets/ext/aepx.svg);
+}
+.ext-aet {
+    background-image: url(../assets/ext/aet.svg);
+}
+.ext-aex {
+    background-image: url(../assets/ext/aex.svg);
+}
+.ext-ai {
+    background-image: url(../assets/ext/ai.svg);
+}
+.ext-aspx {
+    background-image: url(../assets/ext/aspx.svg);
+}
+.ext-avi {
+    background-image: url(../assets/ext/avi.svg);
+}
+.ext-bak {
+    background-image: url(../assets/ext/bak.svg);
+}
+.ext-bat {
+    background-image: url(../assets/ext/bat.svg);
+}
+.ext-bmp {
+    background-image: url(../assets/ext/bmp.svg);
+}
+.ext-c {
+    background-image: url(../assets/ext/c.svg);
+}
+.ext-cmd {
+    background-image: url(../assets/ext/cmd.svg);
+}
+.ext-cpp {
+    background-image: url(../assets/ext/cpp.svg);
+}
+.ext-cs {
+    background-image: url(../assets/ext/cs.svg);
+}
+.ext-css {
+    background-image: url(../assets/ext/css.svg);
+}
+.ext-csv {
+    background-image: url(../assets/ext/csv.svg);
+}
+.ext-db {
+    background-image: url(../assets/ext/db.svg);
+}
+.ext-dbf {
+    background-image: url(../assets/ext/dbf.svg);
+}
+.ext-div {
+    background-image: url(../assets/ext/div.svg);
+}
+.ext-dll {
+    background-image: url(../assets/ext/dll.svg);
+}
+.ext-doc {
+    background-image: url(../assets/ext/doc.svg);
+}
+.ext-docx {
+    background-image: url(../assets/ext/docx.svg);
+}
+.ext-dot {
+    background-image: url(../assets/ext/dot.svg);
+}
+.ext-eps {
+    background-image: url(../assets/ext/eps.svg);
+}
+.ext-exe {
+    background-image: url(../assets/ext/exe.svg);
+}
+.ext-flv {
+    background-image: url(../assets/ext/flv.svg);
+}
+.ext-gif {
+    background-image: url(../assets/ext/gif.svg);
+}
+.ext-h {
+    background-image: url(../assets/ext/h.svg);
+}
+.ext-htm {
+    background-image: url(../assets/ext/htm.svg);
+}
+.ext-html {
+    background-image: url(../assets/ext/html.svg);
+}
+.ext-java {
+    background-image: url(../assets/ext/java.svg);
+}
+.ext-jpeg {
+    background-image: url(../assets/ext/jpeg.svg);
+}
+.ext-jpg {
+    background-image: url(../assets/ext/jpg.svg);
+}
+.ext-js {
+    background-image: url(../assets/ext/js.svg);
+}
+.ext-json {
+    background-image: url(../assets/ext/json.svg);
+}
+.ext-jsp {
+    background-image: url(../assets/ext/jsp.svg);
+}
+.ext-lib {
+    background-image: url(../assets/ext/lib.svg);
+}
+.ext-m4v {
+    background-image: url(../assets/ext/m4v.svg);
+}
+.ext-mdb {
+    background-image: url(../assets/ext/mdb.svg);
+}
+.ext-mdf {
+    background-image: url(../assets/ext/mdf.svg);
+}
+.ext-mkv {
+    background-image: url(../assets/ext/mkv.svg);
+}
+.ext-mov {
+    background-image: url(../assets/ext/mov.svg);
+}
+.ext-mp3 {
+    background-image: url(../assets/ext/mp3.svg);
+}
+.ext-mp4 {
+    background-image: url(../assets/ext/mp4.svg);
+}
+.ext-mpeg {
+    background-image: url(../assets/ext/mpeg.svg);
+}
+.ext-pdf {
+    background-image: url(../assets/ext/pdf.svg);
+}
+.ext-php {
+    background-image: url(../assets/ext/php.svg);
+}
+.ext-png {
+    background-image: url(../assets/ext/png.svg);
+}
+.ext-ppt {
+    background-image: url(../assets/ext/ppt.svg);
+}
+.ext-pptx {
+    background-image: url(../assets/ext/pptx.svg);
+}
+.ext-psd {
+    background-image: url(../assets/ext/psd.svg);
+}
+.ext-py {
+    background-image: url(../assets/ext/py.svg);
+}
+.ext-rar {
+    background-image: url(../assets/ext/rar.svg);
+}
+.ext-raw {
+    background-image: url(../assets/ext/raw.svg);
+}
+.ext-rm {
+    background-image: url(../assets/ext/rm.svg);
+}
+.ext-rmvb {
+    background-image: url(../assets/ext/rmvb.svg);
+}
+.ext-rtf {
+    background-image: url(../assets/ext/rtf.svg);
+}
+.ext-svg {
+    background-image: url(../assets/ext/svg.svg);
+}
+.ext-tiff {
+    background-image: url(../assets/ext/tiff.svg);
+}
+.ext-tmp {
+    background-image: url(../assets/ext/tmp.svg);
+}
+.ext-txt {
+    background-image: url(../assets/ext/txt.svg);
+}
+.ext-vob {
+    background-image: url(../assets/ext/vob.svg);
+}
+.ext-wav {
+    background-image: url(../assets/ext/wav.svg);
+}
+.ext-wdb {
+    background-image: url(../assets/ext/wdb.svg);
+}
+.ext-wma {
+    background-image: url(../assets/ext/wma.svg);
+}
+.ext-wmv {
+    background-image: url(../assets/ext/wmv.svg);
+}
+.ext-wps {
+    background-image: url(../assets/ext/wps.svg);
+}
+.ext-xd {
+    background-image: url(../assets/ext/xd.svg);
+}
+.ext-xls {
+    background-image: url(../assets/ext/xls.svg);
+}
+.ext-xlsx {
+    background-image: url(../assets/ext/xlsx.svg);
+}
+.ext-xml {
+    background-image: url(../assets/ext/xml.svg);
+}
+.ext-zip {
+    background-image: url(../assets/ext/zip.svg);
+}
+.ext-folder {
+    background-image: url(../assets/ext/folder.svg);
+}
+.ext-other {
+    background-image: url(../assets/ext/other.svg);
+}
